@@ -1,0 +1,36 @@
+{% extends 'theme.html' %}
+{% block content %}
+<div class="container bg-info" align="center">
+    <div class="row m-5 bg-success" >
+        <div class="col-lg-6 mx-auto bg-warning " >
+            <div class="border shadow p-5 bg-info" >
+                <h1>Login Page</h1>
+                {% if errors %}
+                <div>
+                    <div class="alert alert-danger alert-dismissible fade show m-3" role="alert">
+  <strong>Error:{{errors}}</strong>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+                </div>
+                {% endif %}
+                <form method="post" action="login" class="border">
+                    {% csrf_token %}
+                    <div class="form-group m-2">
+                        <label>Email</label>
+                        <input type="email" name="email" placeholder="Enter registered email" class="form-control  color-dark">
+                    </div>
+                    <div class="form-group m-2">
+                        <label>Password</label>
+                        <input type="password" name="password" placeholder="Enter your password" class="form-control  color-dark">
+                    </div>
+                       <div class="form-group m-2">
+                           <input type="submit" value="submit" class="btn btn-outline-success form-control">
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

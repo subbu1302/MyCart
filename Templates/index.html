@@ -1,0 +1,51 @@
+{% extends 'theme.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <div class="row mt-3">
+        <!--categories list columns-->
+        <div class="col-lg-3 ">
+            <div class="m-3">
+                <a href="/" class="list-group-item ">
+                    <button class="btn btn-outline-dark form-control">
+                    All products
+                        </button>
+                </a>
+                {% for j in categories %}
+                 <a href="/?category={{j.id}}" class="list-group-item ">
+                     <button class="btn btn-outline-dark form-control">
+                    {{j.Name}}
+                         </button>
+                </a>
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+
+        <!--products columns -->
+        <div class="col-lg-9">
+<div class="row">
+        <!--products list -->
+        {% for i in product %}
+        <div class="col-lg-4 " >
+            <div class="card shadow" style="width:20 rem; height=35 rem">
+  <img src='{{i.Image.url}}' class="card-img-top" class='image-fluid' alt="...">
+  <div class="card-body mb-5">
+    <h3>{{i.Name}}</h3>
+      <h5>price :RS.{{i.Price}}</h5>
+    <p class="card-text">{{i.Desc}}</p>
+    <a href="#" class="btn btn-primary">Buy Now</a>
+  </div>
+</div>
+        </div>
+ {% endfor %}
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}
